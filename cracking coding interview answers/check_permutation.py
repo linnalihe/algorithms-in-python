@@ -1,5 +1,6 @@
 # Q1.2 of Cracking the Coding Interview 6
-
+# Check Permutation: Given two strings, write a method to decide if one is a permutation of the
+# other.
 
 strInput1 = input("give me the first string: ")
 strInput2 = input("give me the second string: ")

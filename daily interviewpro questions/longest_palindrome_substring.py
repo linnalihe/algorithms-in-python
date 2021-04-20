@@ -8,12 +8,12 @@
 
 # Input: "million"
 # Output: "illi"
-class Solution:
-    def longestPalindrome(self, s):
-        pass
-        # Fill this in.
+# class Solution:
+#     def longestPalindrome(self, s):
+#         pass
+#         # Fill this in.
 
-        # Test program
-s = "tracecars"
-print(str(Solution().longestPalindrome(s)))
+#         # Test program
+# s = "tracecars"
+# print(str(Solution().longestPalindrome(s)))
 # racecar
