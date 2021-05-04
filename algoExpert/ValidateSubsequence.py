@@ -5,4 +5,16 @@
 # Return boolean value
 
 def isValidSubsequence(array, sequence):
-    pass
+    sPointer = 0
+    aPointer = 0
+    while sPointer < len(sequence) and aPointer < len(array):
+        if(array[aPointer] == sequence[sPointer]):
+            sPointer += 1
+            aPointer += 1
+        else:
+            aPointer += 1
+    return sPointer == len(sequence)
+
+
+# iterate sequence, increment pointer if value in array in same order
+# return true if pointer for sequence is length of sequence
