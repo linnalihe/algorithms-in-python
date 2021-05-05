@@ -26,5 +26,25 @@ def threeNumberSum(array, targetSum):
             else:
                 output.append([array[i], array[left], array[right]])
                 left += 1
+                right -= 1
 
+    return output
+
+# O(N^3 log M* log K)?
+
+
+def threeNumberSum2(array, targetSum):
+    output = []
+    check = set()
+    for i in range(len(array)):
+        for j in range(len(array)):
+            for k in range(len(array)):
+                if(i != j and i != k and j != k and array[i]+array[j]+array[k] == targetSum):
+                    tempArray = [array[i], array[j], array[k]]
+                    tempArray.sort()
+                    tempTup = (tempArray[0], tempArray[1], tempArray[2])
+                    if(tempTup not in check):
+                        output.append(tempArray)
+                        check.add(tempTup)
+    output.sort()
     return output
