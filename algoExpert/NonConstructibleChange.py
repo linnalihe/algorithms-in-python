@@ -8,8 +8,6 @@ def nonConstructibleChange(coins):
     for c in coins:
         prevSum = coinSum
         coinSum += c
-        print(prevSum)
-        print(c)
         if(prevSum + 1 < c):
             return prevSum + 1
 
