@@ -29,6 +29,32 @@
 # 2 <= n <= 105
 # 0 <= height[i] <= 104
 
+# area is the difference in index position * max of index values
+
+# brute force is a nested for loop that will check each pair and
+# keep track of the maxArea found
+
+# start from the left and right and move inward
+# this will maximize the diff in index position
+# move right pointer if it is shorter else left pointer
+
+# Runtime: 676 ms, faster than 86.83% of Python3 online submissions for Container With Most Water.
+# Memory Usage: 27.8 MB, less than 11.38% of Python3 online submissions for Container With Most Water.
+
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        pass
+        maxArea = 0
+        left = 0
+        right = len(height)-1
+        while left < right:
+            shorter = height[left] if height[left] < height[right] else height[right]
+            area = (right-left)*shorter
+            if area > maxArea:
+                maxArea = area
+
+            if shorter == height[left]:
+                left += 1
+
+            else:
+                right -= 1
+        return maxArea
