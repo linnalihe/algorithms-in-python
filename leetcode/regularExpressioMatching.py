@@ -137,7 +137,7 @@ class Solution(object):
 
 
 class Solution(object):
-    def isMatch(self, text, pattern):
+    def isMatch4(self, text, pattern):
         dp = [[False] * (len(pattern) + 1) for _ in range(len(text) + 1)]
 
         dp[-1][-1] = True
