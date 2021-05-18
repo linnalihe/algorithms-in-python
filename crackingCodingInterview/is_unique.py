@@ -5,19 +5,48 @@
 strInput = input("Check if this string has unique characters: ")
 
 
-def is_unique(strInput: str) -> None:
+def is_unique(strInput: str) -> bool:
     if(strInput == ""):
         return True
 
     for i in range(len(strInput)):
-        print(strInput[i])
         subStr = strInput[i+1:]
         for j in range(len(subStr)):
-            print(subStr[j])
             if(strInput[i] == subStr[j]):
                 return False
+    return True
+
+# assuming ascii set
+# time O(n), space O(1)
+
+
+def is_unique_chars(strInput: str) -> bool:
+    if len(strInput) > 128:
+        return False
+    ascii_len = 128
+    charset = [None]*ascii_len
+    for i in range(len(strInput)):
+        ascii_val = ord(strInput[i])
+        if(charset[ascii_val]):
+            return False
+        charset[ascii_val] = True
+    return True
+
+
+def is_unique_char_bitvector(strInput: str) -> bool:
+    checker = 0
+    for i in range(len(strInput)):
+        val = ord(strInput[i]) - ord('a')
+        print(val)
+        if((checker & (1 << val)) > 0):
+            return False
+
+        checker |= (1 << val)
+
     return True
 
 
 if __name__ == "__main__":
     print(is_unique(strInput))
+    print(is_unique_chars(strInput))
+    print(is_unique_char_bitvector(strInput))
