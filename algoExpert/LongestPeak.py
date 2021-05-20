@@ -26,3 +26,31 @@ def longestPeak(array):
                 longest = counter
 
     return longest
+
+# iterate though all the items in an array
+# longestpeak to track longest
+# peakcount to count length of peak
+# if increasing, increment counter
+# if decreasing, increment counter
+# only compare templen to longestpeak when there is a +1 (increment) and -1 (decrement) and
+# +1 increment again or end of array
+
+# more complicated approach compared to finding peaks first, (incomplete)
+
+
+def longestPeak2(array):
+    longestpeak = 0
+    idx = 0
+    while idx < len(array):
+        pass
+    # check if val is increasing
+        # scenerios:
+        # have been increasing
+        # have been decreasing
+        # already increase and decreased
+        # check if val is decreasing
+        # scenerios:
+        # have been increasing
+        # if value is staying the same
+        # zero out the peakcount
+    return longestpeak
