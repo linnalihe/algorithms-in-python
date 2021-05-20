@@ -17,6 +17,7 @@ strLen = len(strInput) + 2*spaceCount
 
 
 def urlify(strInput: list, strLen: int) -> str:
+
     strOutput = [None]*strLen
 
     offset = 0
@@ -33,4 +34,9 @@ def urlify(strInput: list, strLen: int) -> str:
     return "".join(str(char) for char in strOutput)
 
 
-print(urlify(list(strInput), strLen))
+def urlify2(strInput: list) -> str:
+    pass
+
+
+if __name__ == "__main__":
+    print(urlify(list(strInput), strLen))
