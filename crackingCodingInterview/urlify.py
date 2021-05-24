@@ -16,7 +16,7 @@ for char in strInput:
 strLen = len(strInput) + 2*spaceCount
 
 
-def urlify(strInput: list, strLen: int) -> str:
+def replaceSpaces(strInput: list, strLen: int) -> str:
 
     strOutput = [None]*strLen
 
@@ -34,9 +34,21 @@ def urlify(strInput: list, strLen: int) -> str:
     return "".join(str(char) for char in strOutput)
 
 
-def urlify2(strInput: list) -> str:
-    pass
+def replaceSpaces2(strInput: list, strLen: int) -> str:
+    spaceCount = 0
+    index = 0
+    i = 0
+    strOutput = [None]*strLen
+    for i in range(len(strInput)):
+        if(strInput[i] == " "):
+            spaceCount += 1
+
+    index = strLen + spaceCount*2
+    for i in range(strLen-1, -1, -1):
+        print(i)
+    return "".join(str(c) for c in strOutput)
 
 
 if __name__ == "__main__":
-    print(urlify(list(strInput), strLen))
+    print(replaceSpaces(list(strInput), strLen))
+    print(replaceSpaces2(list(strInput), strLen))
