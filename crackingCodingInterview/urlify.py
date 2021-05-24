@@ -35,17 +35,19 @@ def replaceSpaces(strInput: list, strLen: int) -> str:
 
 
 def replaceSpaces2(strInput: list, strLen: int) -> str:
-    spaceCount = 0
-    index = 0
-    i = 0
-    strOutput = [None]*strLen
-    for i in range(len(strInput)):
-        if(strInput[i] == " "):
-            spaceCount += 1
 
-    index = strLen + spaceCount*2
-    for i in range(strLen-1, -1, -1):
-        print(i)
+    index = 0
+    strOutput = [None]*strLen
+    index = strLen
+    for i in range(len(strInput)-1, -1, -1):
+        if(strInput[i] == " "):
+            strOutput[index - 1] = "0"
+            strOutput[index - 2] = "2"
+            strOutput[index - 3] = "%"
+            index = index - 3
+        else:
+            strOutput[index - 1] = strInput[i]
+            index -= 1
     return "".join(str(c) for c in strOutput)
 
 
