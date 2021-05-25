@@ -24,4 +24,13 @@ def pali_perm(inputStr: str):
         return True
 
 
-print(pali_perm(inputStr))
+def sol_pali_perm(inputStr: str):
+    pass
+
+
+def sol2_pali_perm(inputStr: str):
+    pass
+
+
+if __name__ == "__main__":
+    print(pali_perm(inputStr))

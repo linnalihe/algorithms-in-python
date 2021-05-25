@@ -20,7 +20,7 @@ def is_unique(strInput: str) -> bool:
 # time O(n), space O(1)
 
 
-def is_unique_chars(strInput: str) -> bool:
+def sol_is_unique(strInput: str) -> bool:
     if len(strInput) > 128:
         return False
     ascii_len = 128
@@ -33,7 +33,7 @@ def is_unique_chars(strInput: str) -> bool:
     return True
 
 
-def is_unique_char_bitvector(strInput: str) -> bool:
+def sol2_is_unique(strInput: str) -> bool:
     checker = 0
     for i in range(len(strInput)):
         val = ord(strInput[i]) - ord('a')
@@ -48,5 +48,5 @@ def is_unique_char_bitvector(strInput: str) -> bool:
 
 if __name__ == "__main__":
     print(is_unique(strInput))
-    print(is_unique_chars(strInput))
-    print(is_unique_char_bitvector(strInput))
+    print(sol_is_unique(strInput))
+    print(sol2_is_unique(strInput))

@@ -29,7 +29,7 @@ def sort_string(inputStr: str) -> str:
 # sorting the array and then comparing the sorted string
 
 
-def check_perm2(input1: str, input2: str):
+def sol_check_perm(input1: str, input2: str):
     if len(input1) != len(input2):
         return False
     return sort_string(input1) == sort_string(input2)
@@ -37,7 +37,7 @@ def check_perm2(input1: str, input2: str):
 # create a 128 len array and count characters, compare array
 
 
-def check_perm3(input1: str, input2: str) -> str:
+def sol2_check_perm(input1: str, input2: str) -> str:
     if len(input1) != len(input2):
         return False
 
@@ -53,5 +53,5 @@ def check_perm3(input1: str, input2: str) -> str:
 
 if __name__ == "__main__":
     print(check_perm(strInput1, strInput2))
-    print(check_perm2(strInput1, strInput2))
-    print(check_perm3(strInput1, strInput2))
+    print(sol_check_perm(strInput1, strInput2))
+    print(sol2_check_perm(strInput1, strInput2))

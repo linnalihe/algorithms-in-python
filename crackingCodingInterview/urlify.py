@@ -16,7 +16,7 @@ for char in strInput:
 strLen = len(strInput) + 2*spaceCount
 
 
-def replaceSpaces(strInput: list, strLen: int) -> str:
+def replace_spaces(strInput: list, strLen: int) -> str:
 
     strOutput = [None]*strLen
 
@@ -34,7 +34,7 @@ def replaceSpaces(strInput: list, strLen: int) -> str:
     return "".join(str(char) for char in strOutput)
 
 
-def replaceSpaces2(strInput: list, strLen: int) -> str:
+def sol_replace_spaces(strInput: list, strLen: int) -> str:
 
     index = 0
     strOutput = [None]*strLen
@@ -52,5 +52,5 @@ def replaceSpaces2(strInput: list, strLen: int) -> str:
 
 
 if __name__ == "__main__":
-    print(replaceSpaces(list(strInput), strLen))
-    print(replaceSpaces2(list(strInput), strLen))
+    print(replace_spaces(list(strInput), strLen))
+    print(sol_replace_spaces(list(strInput), strLen))
