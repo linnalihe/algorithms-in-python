@@ -58,3 +58,26 @@ class Solution:
         self.binaryTreePathsHelper(root, nodesList, pathStr)
 
         return nodesList
+
+
+class Solution2:
+
+    def binaryTreePaths(self, root: TreeNode) -> List[str]:
+        if not root:
+            return []
+
+        output = []
+        # stack of node contains tuple with node and it's value
+        nodeStack = [(root, str(root.val))]
+        while nodeStack:
+            currentNode, path = nodeStack.pop()
+            if not currentNode.left and not currentNode.right:
+                output.append(path)
+            if currentNode.right:
+                nodeStack.append(
+                    (currentNode.right, path+"->"+str(currentNode.right.val)))
+            if currentNode.left:
+                nodeStack.append(
+                    (currentNode.left, path+"->"+str(currentNode.left.val)))
+
+        return output
