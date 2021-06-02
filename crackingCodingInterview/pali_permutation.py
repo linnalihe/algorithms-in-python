@@ -25,12 +25,84 @@ def pali_perm(inputStr: str):
 
 
 def sol_pali_perm(inputStr: str):
-    pass
+    charFreq = buildCharFrequency(inputStr)
+    return checkMaxOneOdd(charFreq)
+
+
+def checkMaxOneOdd(table: dict):
+    foundOdd = False
+    for x in table.values():
+        if(x % 2 == 1):
+            if foundOdd:
+                return False
+            foundOdd = True
+    return True
+
+
+def buildCharFrequency(phrase: str):
+    table = {}
+    for char in phrase:
+        x = getCharNumber(char)
+        if(x != -1):
+            table[x] = table.get(x, 0) + 1
+    return table
+
+
+def getCharNumber(letter: str):
+    a = ord('a')
+    z = ord('z')
+    val = ord(letter)
+    if(a <= val and val <= z):
+        return val - a
+    return -1
 
 
 def sol2_pali_perm(inputStr: str):
-    pass
+    countOdd = 0
+    table = [0]*26
+    for char in inputStr:
+        x = getCharNumber(char)
+        if(x != -1):
+            table[x] += 1
+            if(table[x] % 2 == 1):
+                countOdd += 1
+            else:
+                countOdd -= 1
+    return countOdd <= 1
+
+
+def sol3_pali_perm(inputStr: str):
+    bitVector = createBitVector(inputStr)
+    return bitVector == 0 or checkExactlyOneBitSet(bitVector)
+
+
+def createBitVector(inputStr: str):
+    bitVector = 0
+    for char in inputStr:
+        x = getCharNumber(char)
+        bitVector = toggle(bitVector, x)
+    return bitVector
+
+
+def toggle(bitVector, idx):
+    if idx < 0:
+        return bitVector
+    mask = 1 << idx
+
+    if((bitVector & mask) == 0):
+        bitVector |= mask
+    else:
+        bitVector &= ~mask
+    return bitVector
+
+
+def checkExactlyOneBitSet(bitVector) -> bool:
+    print("bitV", bitVector)
+    return (bitVector & (bitVector - 1)) == 0
 
 
 if __name__ == "__main__":
     print(pali_perm(inputStr))
+    print(sol_pali_perm(inputStr))
+    print(sol2_pali_perm(inputStr))
+    print(sol3_pali_perm(inputStr))

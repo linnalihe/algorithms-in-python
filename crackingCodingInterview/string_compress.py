@@ -21,26 +21,44 @@ def str_compress(inputStr: str):
     return newStr
 
 
-# def str_compress(inputStr: str):
-#     currStr = inputStr[0]
-#     count = 0
-#     newStr = ""
-#     for i in range(len(inputStr)):
+def sol_str_compress(inputStr: str):
+    compressedStr = ""
+    countConsec = 0
+    for i in range(len(inputStr)):
+        countConsec += 1
+        if(i+1 >= len(inputStr) or inputStr[i] != inputStr[i+1]):
+            compressedStr += inputStr[i] + str(countConsec)
+            countConsec = 0
+    return compressedStr if len(compressedStr) < len(inputStr) else inputStr
 
-#         if currStr is not inputStr[i]:
-#             newStr += currStr+str(count) if count > 1 else currStr
-#             currStr = inputStr[i]
-#             count = 1
-#             if i == len(inputStr)-1:
-#                 newStr += currStr+str(count) if count > 1 else currStr
 
-#         else:
-#             count += 1
-#             if i == len(inputStr)-1:
-#                 newStr += currStr+str(count) if count > 1 else currStr
+def sol2_str_compress(inputStr: str):
+    finalLen = countCompression(inputStr)
+    if(finalLen >= len(inputStr)):
+        return inputStr
+    compressedStr = ""
+    countConsec = 0
+    for i in range(len(inputStr)):
+        countConsec += 1
+        if(i+1 >= len(inputStr) or inputStr[i] != inputStr[i+1]):
+            compressedStr += inputStr[i] + str(countConsec)
+            countConsec = 0
+    return compressedStr if len(compressedStr) < len(inputStr) else inputStr
 
-#     return newStr
+
+def countCompression(inputStr: str):
+    compressedLen = 0
+    countConsec = 0
+    for i in range(len(inputStr)):
+        countConsec += 1
+
+        if(i+1 >= len(inputStr) or inputStr[i] != inputStr[i+1]):
+            compressedLen += 1
+            countConsec = 0
+    return compressedLen
 
 
 if __name__ == "__main__":
     print(str_compress(inputStr))
+    print(sol_str_compress(inputStr))
+    print(sol2_str_compress(inputStr))
