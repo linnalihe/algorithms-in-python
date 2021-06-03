@@ -97,7 +97,6 @@ def toggle(bitVector, idx):
 
 
 def checkExactlyOneBitSet(bitVector) -> bool:
-    print("bitV", bitVector)
     return (bitVector & (bitVector - 1)) == 0
 
 
