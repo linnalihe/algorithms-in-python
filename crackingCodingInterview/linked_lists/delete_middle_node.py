@@ -7,5 +7,5 @@ def delete_node(node: Node):
         return False  # error case
     next = node.next
     node.value = next.value
-    n.next = next.next
+    node.next = next.next
     return True
