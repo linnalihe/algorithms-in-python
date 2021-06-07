@@ -68,7 +68,7 @@ def addListsHelper(node1, node2):
     # add smaller digits recursively
     p_sum = addListsHelper(node1.next, node2.next)
 
-    # add carry to current data
+    # add carry to current value
     val = p_sum.carry + node1.value + node2.value
 
     # insert sum of current digits

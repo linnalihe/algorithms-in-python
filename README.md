@@ -100,6 +100,6 @@ algorithm and data structures problems that are given at interviews for large te
 
 ## Cracking the Coding Interview 6th Edition
 
-## Daily Interviewpro
+## Daily InterviewPro
 
-## Leetcode
+## LeetCode
