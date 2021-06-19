@@ -20,15 +20,3 @@
 
 There is no "right" design pattern, just create one that works for the problem.
 Two common design patterns:
-
-- Singleton Class
-  This pattern makes there is only one instance of the class and ensures
-  that there is access to that instance
-  Many people dislike this pattern because it interferes with unit-testing/ considered and anti-pattern
-
-- Factory Method
-  This pattern creates an interface for creating an instance of the class.
-  The subclasses decide what class to instantiate.
-  Can either have an abstract creator class and not implement Factory method
-  Or you can have a concrete creator class that provides implementation of Factory methods which will take
-  a parameter that will be used to determine which class to instantiate.
