@@ -35,3 +35,54 @@
 # recursively? or iteratively?
 # recursivley: keep calling left child + right child
 # iteratively: for each node, while next is not null, keep going down right and keep going down left
+
+# ignore everything above for now, will revisit to understand why I couldn't implement thought process from above.
+
+
+# This is an input class. Do not edit.
+class BinaryTree:
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
+
+
+# time complexity is O(N) because it is a depth first search traversal
+# space is average O(h) if balanced but worse case is O(n)
+# for recursive calls, space is calculated on how long it takes to get to base case
+# diameter is the length of the longest path
+
+def binaryTreeDiameter(tree):
+
+    # this is returned once you get back to the root
+    return getTreeInfo(tree).diameter
+
+
+def getTreeInfo(tree):
+    if tree == None:
+        return TreeInfo(0, 0)
+    # returns the tree info from left and right child
+    # where diameter is the largest for the child
+    # where height is the max height for the child
+    leftTreeInfo = getTreeInfo(tree.left)
+    rightTreeInfo = getTreeInfo(tree.right)
+
+    # current node's longest path
+    currentDiameter = leftTreeInfo.height + rightTreeInfo.height
+
+    # current node's longest height to pass up to parent for calculating
+    # parent's diameter
+    currentHeight = 1 + max(leftTreeInfo.height, rightTreeInfo.height)
+
+    # the longest between current longest, left child's diameter, right child's diameter
+    # maxDiameter stores the longest diameter seen so far
+    maxDiameter = max(currentDiameter, leftTreeInfo.diameter,
+                      rightTreeInfo.diameter)
+
+    return TreeInfo(maxDiameter, currentHeight)
+
+
+class TreeInfo:
+    def __init__(self, diameter, height):
+        self.diameter = diameter
+        self.height = height
