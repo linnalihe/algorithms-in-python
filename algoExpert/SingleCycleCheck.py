@@ -24,3 +24,5 @@ def hasSingleCycle(array):
 # start at index = 0
 # next = index + array[index] % len of array, add next to set
 # while next != 0 keep iterating, if there is a duplicate in the set return False
+# time complexity is O(n) because you have to visit every node
+# space complexity is O(1)
