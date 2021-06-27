@@ -7,6 +7,28 @@ class BinaryTree:
         self.parent = parent
 
 
+# O(h) time and O(1) space
+def findSuccessor(tree, node):
+
+    if node.right:
+        return leftmost(node.right)
+    return rightmostparent(node)
+
+
+def leftmost(node):
+    if node.left == None:
+        return node
+    return leftmost(node.left)
+
+
+def rightmostparent(node):
+    if node == None:
+        return None
+    if node.parent and node.parent.left == node:
+        return node.parent
+    return rightmostparent(node.parent)
+
+
 def findSuccessor2(tree, node):
     match = findSuccessorHelp2(tree, node, [])
     for i in range(len(match)):

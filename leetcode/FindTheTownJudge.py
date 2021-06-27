@@ -78,3 +78,27 @@ class Solution:
 # trust[i] are all different
 # trust[i][0] != trust[i][1]
 # 1 <= trust[i][0], trust[i][1] <= n
+
+
+# solution by another RC member
+class Solution2:
+    def findJudge(self, n: int, trust: List[List[int]]) -> int:
+
+        otherTrustCount = [False]*n
+
+        for pair in trust:
+            otherTrustCount[pair[0]-1] = True
+
+        if otherTrustCount.count(False) != 1:
+            return -1
+
+        possible_judge = otherTrustCount.index(False) + 1
+        count = 0
+        for pair in trust:
+            if pair[1] == possible_judge:
+                count += 1
+
+        if count == n-1:
+            return possible_judge
+
+        return -1
