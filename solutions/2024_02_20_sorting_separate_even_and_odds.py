@@ -2,12 +2,6 @@
 # all tests passed
 
 def segregate_evens_and_odds(numbers):
-    """
-    Args:
-     numbers(list_int32)
-    Returns:
-     list_int32
-    """
     # lomuto's partition for 2 partitions
     left = -1
     for idx in range(len(numbers)):

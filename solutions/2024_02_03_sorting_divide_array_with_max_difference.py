@@ -5,7 +5,6 @@ def divideArray( nums: list[int], k: int) -> list[list[int]]:
         # param nums: list of ints positive, length n, multiple of 3
         # param k: positive integer
         # return list of ints bucketed
-
         nums.sort()
         output =[]
         temp = [nums[0]]
@@ -22,7 +21,6 @@ def divideArray( nums: list[int], k: int) -> list[list[int]]:
         output.append(temp)
                 
         return output
-
 # Sample tests
 # [1,3,4,8,7,9,3,5,1]
 # 2
