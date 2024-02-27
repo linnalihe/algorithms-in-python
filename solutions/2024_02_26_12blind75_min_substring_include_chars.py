@@ -19,7 +19,6 @@ def minWindow(s: str, t: str) -> str:
 
     need_count = len(need_val_map)
     
-
     have_count = 0
     have_val_map = defaultdict(int)
 
