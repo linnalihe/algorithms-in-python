@@ -1,6 +1,7 @@
 # https://leetcode.com/problems/subtree-of-another-tree/
 # all tests passed
 from typing import Optional
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
