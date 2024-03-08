@@ -15,5 +15,4 @@ def eraseOverlapIntervals(intervals: list[list[int]]) -> int:
             count+=1
             currend = min(currend, nextend)
 
-
     return count
